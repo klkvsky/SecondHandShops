@@ -1,7 +1,8 @@
 <template>
   <div class="desktopWarning">
     <h1>
-      Версия для компьютеров находится в разработке, <br> для более приятного интерфейса продолжите на телефоне
+      Версия для компьютеров находится в разработке, <br />
+      для более приятного интерфейса продолжите на телефоне
     </h1>
     <h4>Постараюсь как можно быстрее закончить ее, обещаю 🐣</h4>
   </div>
@@ -27,6 +28,16 @@ import GridRow from "./components/gridRow.vue";
   color: #2c3e50;
   margin-top: 60px;
   margin: 1rem 6%;
+
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+  }
+}
+
+body{
+    @media (prefers-color-scheme: dark) {
+      background-color: #121212;
+  }
 }
 
 .desktopWarning {
@@ -50,12 +61,16 @@ import GridRow from "./components/gridRow.vue";
     margin: 0 10%;
   }
 
+    @media (prefers-color-scheme: dark) {
+      background-color: #121212;
+  }
+
   @media (min-width: 1200px) {
     display: flex;
   }
 
-  @media (max-width: 1199px){
-  	display: none;
+  @media (max-width: 1199px) {
+    display: none;
   }
 }
 </style>

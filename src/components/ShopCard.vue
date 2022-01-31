@@ -3,10 +3,7 @@
     <div class="card__basicInfo">
       <h1>{{ itemData.name }}</h1>
       <p>{{ itemData.time }}</p>
-      <h4>{{ itemData.adress }}</h4>
-    </div>
-    <div class="card__reactiveInfo">
-      <h1
+       <p
         :class="{
           danger:
             itemData.schedule[getCurrentDate()].day === this.itemData.cicles,
@@ -14,8 +11,12 @@
         v-if="itemData.schedule[getCurrentDate()].discount != 0"
       >
         Скидка: {{ itemData.schedule[getCurrentDate()].discount }}%
-      </h1>
-      <h1 v-else class="new">Новый завоз</h1>
+      </p>
+      <p v-else class="new">Новый завоз</p>
+      <h4>{{ itemData.adress }}</h4>
+    </div>
+    <div class="card__reactiveInfo">
+     
 
       <div class="card__reactiveInfo__icons">
         <span class="UnitOfSale">
@@ -119,6 +120,20 @@ export default {
       font-size: 3vw;
       font-weight: 500;
       margin: 0;
+
+      &.new {
+        background-color: #90ee90;
+        padding: 0.2rem 0.5rem;
+
+        @media (prefers-color-scheme: dark) {
+          color: #333;
+        }
+      }
+      &.danger {
+        background-color: #7c69ef;
+        padding: 0.2rem 0.5rem;
+        color: #fff;
+      }
     }
     h4 {
       margin: 0;
@@ -138,20 +153,6 @@ export default {
       margin: 0;
       font-weight: 900;
       border-radius: 5px;
-
-      &.new {
-        background-color: #90ee90;
-        padding: 0.2rem 0.5rem;
-
-        @media (prefers-color-scheme: dark) {
-          color: #333;
-        }
-      }
-      &.danger {
-        background-color: #7c69ef;
-        padding: 0.2rem 0.5rem;
-        color: #fff;
-      }
     }
 
     &__icons {
